@@ -138,4 +138,5 @@ UI
 	height: calc(100vh - 6rem);
 	object-fit: contain;
 	border: 1rem var(--pink-light) solid;
+	border-radius: var(--border-radius);
 }
