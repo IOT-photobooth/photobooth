@@ -10,6 +10,7 @@
 
 /* General */
 body {
+	margin: 0;
 	background-color: var(--background);
 	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
 }
@@ -121,4 +122,20 @@ UI
 .order__img {
 	height: 5rem;
 	width: 5rem;
+}
+
+/* Projectiescherm */
+.slides__border {
+	margin: -3rem 0 0 0;
+	width: 100vw;
+	height: 100vh;
+	background-color: var(--pink-dark);
+}
+
+.slides__img {
+	margin: 2.5rem;
+	width: calc(100vw - 6rem);
+	height: calc(100vh - 6rem);
+	object-fit: contain;
+	border: 1rem var(--pink-light) solid;
 }
