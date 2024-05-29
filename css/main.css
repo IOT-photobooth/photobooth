@@ -35,6 +35,7 @@ button,
 
 .button {
   display: inline-block;
+  text-decoration: none;
   margin: 1rem;
 }
 
@@ -81,9 +82,9 @@ header {
 }
 
 #videoElement {
-	width: 100vw;
-	height: 100vh;
-	background-color: #699690;
+  width: 100vw;
+  height: 100vh;
+  background-color: #699690;
 }
 
 /*
