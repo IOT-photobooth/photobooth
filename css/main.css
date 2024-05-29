@@ -80,6 +80,12 @@ header {
   height: 15rem;
 }
 
+#videoElement {
+	width: 100vw;
+	height: 100vh;
+	background-color: #699690;
+}
+
 /*
 UI
 */
