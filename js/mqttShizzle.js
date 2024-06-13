@@ -20,6 +20,11 @@ client.on("message", (topic, message) => {
 });
 
 btnTakePic.addEventListener("click", (e) => {
+  // disable button for 10 seconds
+  btnTakePic.disabled = true;
   client.publish("photobooth/AHS", "flash");
   console.log("button clicked");
+  setTimeout(() => {
+    btnTakePic.disabled = false;
+  }, 10000);
 });

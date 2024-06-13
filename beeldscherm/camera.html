@@ -1,20 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="stylesheet" href="../css/main.css" />
-		<title>Camera</title>
-	</head>
-	<body>
-		<div class="video-container">
-			<video autoplay="true" id="videoElement"></video>
-		</div>
-		
-		<script src="../js/camera.js"></script>
-		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-		<script src="webCamLib.min.js"></script>
-		<script>$('.video-container').customWebCam()</script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/main.css" />
+    <title>Camera</title>
+  </head>
+  <body>
+    <div class="video-container">
+      <video autoplay="true" id="videoElement"></video>
+    </div>
 
-	</body>
+    <script src="../js/camera.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../js/webCamLib.min.js"></script>
+    <script>
+      $(".video-container").customWebCam();
+    </script>
+  </body>
 </html>

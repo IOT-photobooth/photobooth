@@ -4,6 +4,8 @@
   --pink-dark: #be7e7c;
   --blue-light: #94d1c9;
   --blue-dark: #699690;
+  --disabled-dark: #8c8c8c;
+  --disabled-light: #d9d9d9;
 
   --border-radius: 0.2rem;
 }
@@ -37,6 +39,19 @@ button,
   display: inline-block;
   text-decoration: none;
   margin: 1rem;
+}
+
+button:active {
+  background-color: var(--pink-dark);
+  color: var(--pink-light);
+  box-shadow: 3px 3px var(--pink-light);
+}
+
+button:disabled {
+  background-color: var(--disabled-light);
+  color: var(--disabled-dark);
+  border: 1px solid var(--disabled-dark);
+  box-shadow: none;
 }
 
 .main {
