@@ -1,6 +1,9 @@
 import time
 from rpi_ws281x import PixelStrip, Color
 
+import sys
+import paho.mqtt.client as mqtt
+
 # LED strip configuration:
 LED_COUNT = 10        # Number of LED pixels.
 LED_PIN = 18          # GPIO pin connected to the pixels (must support PWM!).
@@ -12,8 +15,30 @@ LED_CHANNEL = 0
 
 # Create PixelStrip object with appropriate configuration.
 strip = PixelStrip(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT, LED_BRIGHTNESS, LED_CHANNEL)
+
 # Intialize the library (must be called once before other functions).
 strip.begin()
+
+# mqtt setup
+def on_connect(client, userdata, flags, rc, properties):
+    print(f"Connected with result code {rc}")
+    client.subscribe('photobooth/AHS')
+
+
+def message_handler(client, userdata, message):
+    print(f"Message received: {message.payload.decode()}")
+    # if message.topic == 'photobooth/AHS' and message.payload.decode() == 'flash':
+    if message.payload.decode() == 'flash':
+        print("Flash!")
+        ledCountdown(strip)
+
+client = mqtt.Client(mqtt.CallbackAPIVersion.VERSION2)
+client.on_connect = on_connect
+client.on_message = message_handler
+
+if client.connect("mqtt.eclipseprojects.io", 1883, 60) != 0:
+    print("Could not connect to MQTT broker")
+    sys.exit(1)
 
 def colorWipe(strip, color, wait_ms=75):
     """Wipe color across display a pixel at a time."""
@@ -76,6 +101,8 @@ if __name__ == '__main__':
     colorWipe(strip, Color(0, 0, 255))  # Blue wipe
     colorWipe(strip, Color(0, 0, 0))  # Wipe out
 
-    time.sleep(1)
+    #time.sleep(1)
 
-    ledCountdown(strip)
+    #ledCountdown(strip)
+
+    client.loop_forever()
