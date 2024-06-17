@@ -6,7 +6,8 @@ const btnTakePic = document.querySelector("#take-picture");
 client.on("connect", () => {
   client.subscribe("photobooth/AHS", (err) => {
     if (!err) {
-      client.publish("presence", "Hello mqtt");
+      client.publish("presence", "Hello from smartphone control");
+      client.publish("photobooth/AHS", "start");
       console.log("we have connected");
       //client.publish
     }
