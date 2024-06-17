@@ -16,13 +16,13 @@
       <h1 class="container__text">Scan de QR-code om te starten</h1>
       <img class="container__img container__img--square" src="../images/qr-start.png" alt="QR-code" />
     </div>
-    <ul id="messages">
+    <!-- <ul id="messages">
       <li>{{ message }}</li>
-    </ul>
+    </ul> -->
 
     <script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
     <script>
-      const messages = document.getElementById("messages");
+      /* const messages = document.getElementById("messages"); */
       /* const client = mqtt.connect(`ws://mqtt.eclipseprojects.io:80/mqtt`); */
       const client = mqtt.connect(`wss://mqtt.eclipseprojects.io/mqtt`);
 
@@ -38,11 +38,16 @@
 
       client.on("message", (topic, message) => {
         console.log("message received: ", message.toString());
-        const msg = message.toString();
+        // if the message is "start" then redirect to camera page
+        if (message.toString() === "start") {
+          window.location.href = "../beeldscherm/camera.html";
+        }
+
+        /* const msg = message.toString();
         const time = new Date().toLocaleTimeString();
         const li = document.createElement("li");
         li.textContent = `${time} - ${msg}`;
-        messages.prepend(li);
+        messages.prepend(li); */
       });
     </script>
   </body>

@@ -14,6 +14,18 @@ client.on("connect", () => {
   });
 });
 
+client.on("reconnect", () => {
+  console.log("Reconnecting...");
+});
+
+client.on("offline", () => {
+  console.log("Went offline...");
+});
+
+window.addEventListener("load", () => {
+  client.publish("photobooth/AHS", "start");
+});
+
 client.on("message", (topic, message) => {
   const msg = message.toString();
   const time = new Date().toLocaleTimeString();
