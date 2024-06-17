@@ -102,15 +102,6 @@ header {
   background-color: #699690;
 }
 
-.camera-page::-webkit-scrollbar {
-  display: none;
-}
-
-.camera-page {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
 /*
 UI
 */
