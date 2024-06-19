@@ -65,7 +65,12 @@ function takepicture() {
     canvas.width = width;
     canvas.height = height;
 
-    context.drawImage(video, 0, 0, width, height);
+    // Mirror the image
+    context.save();
+    context.scale(-1, 1);
+    context.drawImage(video, 0, -width, width, height);
+    context.restore();
+
     const data = canvas.toDataURL("image/png");
     photo.setAttribute("src", data);
 
@@ -78,13 +83,13 @@ function takepicture() {
 client.on("message", (topic, message) => {
   console.log("message received: ", message.toString());
   if (message.toString() === "flash") {
-    for (let i = 0; i < 5; i++) {
+    /* for (let i = 0; i < 5; i++) {
       setTimeout(() => {
         document.getElementById("timer").innerText = 5 - i;
       }, i * 1000);
-    }
+    } */
     setTimeout(() => {
-      document.getElementById("timer").innerText = "Smile!";
+      //document.getElementById("timer").innerText = "Smile!";
       takepicture();
     }, 5500);
     console.log("flash");
