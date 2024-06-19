@@ -16,9 +16,8 @@
     </div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <!-- <script src="../js/webCamLib.min.js"></script> -->
-    <script src="../js/camera.js"></script>
     <script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
+
     <script>
       const client = mqtt.connect(`wss://mqtt.eclipseprojects.io/mqtt`);
 
@@ -90,6 +89,8 @@
           context.drawImage(video, 0, 0, width, height);
           const data = canvas.toDataURL("image/png");
           photo.setAttribute("src", data);
+
+          // Send the image to broker
         } else {
           clearphoto();
         }
