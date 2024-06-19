@@ -82,14 +82,6 @@
       }
 
       function takepicture() {
-        for (let i = 0; i < 5; i++) {
-          setTimeout(() => {
-            document.getElementById("timer").innerText = 5 - i;
-          }, i * 1000);
-        }
-        setTimeout(() => {
-          document.getElementById("timer").innerText = "Smile!";
-        }, 500);
         const context = canvas.getContext("2d");
         if (width && height) {
           canvas.width = width;
@@ -106,6 +98,14 @@
       client.on("message", (topic, message) => {
         console.log("message received: ", message.toString());
         if (message.toString() === "flash") {
+          for (let i = 0; i < 5; i++) {
+            setTimeout(() => {
+              document.getElementById("timer").innerText = 5 - i;
+            }, i * 1000);
+          }
+          setTimeout(() => {
+            document.getElementById("timer").innerText = "Smile!";
+          }, 500);
           takepicture();
           console.log("flash");
           console.log("picture taken");
