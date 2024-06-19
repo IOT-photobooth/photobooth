@@ -72,8 +72,8 @@ function takepicture() {
 		context.restore();
 
 		const data = canvas.toDataURL("image/png");
-		photo.setAttribute("src", data);
 		console.log(data);
+		photo.setAttribute("src", data);
 
 		// Send the image to broker
 	} else {
