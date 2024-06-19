@@ -65,7 +65,12 @@ function takepicture() {
     canvas.width = width;
     canvas.height = height;
 
-    context.drawImage(video, 0, 0, width, height);
+    // Mirror the image
+    context.save();
+    context.scale(-1, 1);
+    context.drawImage(video, -width, 0, width, height);
+    context.restore();
+
     const data = canvas.toDataURL("image/png");
     photo.setAttribute("src", data);
 
