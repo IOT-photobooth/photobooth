@@ -55,8 +55,9 @@ function clearphoto() {
 	context.fillStyle = "#AAA";
 	context.fillRect(0, 0, canvas.width, canvas.height);
 
-	const data = canvas.toDataURL("image/png");
+	const data = canvas.toDataURL("");
 	photo.setAttribute("src", data);
+	console.log("test clear");
 }
 
 function takepicture() {
@@ -73,7 +74,7 @@ function takepicture() {
 
 		const data = canvas.toDataURL("image/png");
 		photo.setAttribute("src", data);
-		console.log("test");
+		console.log("test take");
 
 		// Send the image to broker
 	} else {
