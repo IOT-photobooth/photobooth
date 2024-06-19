@@ -10,12 +10,15 @@
   <body>
     <div class="UI-page">
       <img class="logo" src="../images/ARTEVELDE_hs_logo RGB.png" alt="logo artevelde" />
-      <img class="container__img container__img--rect" src="" alt="" />
+      <img id="image" class="container__img container__img--rect" src="" alt="" />
       <p class="question" id="question">Vind je deze foto goed?</p>
       <div class="buttons" id="approval-buttons">
         <button class="answer-button" id="answer-yes">Ja, love it!</button>
         <button class="answer-button" id="answer-no">Nee, opnieuw!</button>
       </div>
     </div>
+    <script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
+    <script src="../js/mqtt.js"></script>
+    <script src="../js/goedkeuringUI.js"></script>
   </body>
 </html>
