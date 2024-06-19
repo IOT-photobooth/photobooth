@@ -1,179 +1,241 @@
 :root {
-  --background: #f3ecdd;
-  --pink-light: #d5c4ce;
-  --pink-dark: #be7e7c;
-  --blue-light: #94d1c9;
-  --blue-dark: #699690;
-  --disabled-dark: #8c8c8c;
-  --disabled-light: #d9d9d9;
+	--background: #f3ecdd;
+	--pink-light: #d5c4ce;
+	--pink-dark: #be7e7c;
+	--blue-light: #94d1c9;
+	--blue-dark: #699690;
+	--disabled-dark: #8c8c8c;
+	--disabled-light: #d9d9d9;
 
-  --border-radius: 0.2rem;
+	--border-radius: 0.2rem;
 }
 
 /* General */
 body {
-  margin: 0;
-  background-color: var(--background);
-  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+	margin: 0;
+	background-color: var(--background);
+	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
 }
 
 img,
 svg {
-  height: 100%;
+	height: 100%;
 }
 
 button,
 .button {
-  background-color: var(--pink-light);
-  color: var(--pink-dark);
-  font-size: 1.3rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  border: 1px solid var(--pink-dark);
-  border-radius: var(--border-radius);
-  box-shadow: 3px 3px var(--pink-dark);
-  padding: 0.5rem;
+	background-color: var(--pink-light);
+	color: var(--pink-dark);
+	font-size: 1.3rem;
+	font-weight: 600;
+	text-transform: uppercase;
+	border: 1px solid var(--pink-dark);
+	border-radius: var(--border-radius);
+	box-shadow: 3px 3px var(--pink-dark);
+	padding: 0.5rem;
 }
 
 .button {
-  display: inline-block;
-  text-decoration: none;
-  margin: 1rem;
+	display: inline-block;
+	text-decoration: none;
+	margin: 1rem;
 }
 
 button:active {
-  background-color: var(--pink-dark);
-  color: var(--pink-light);
-  box-shadow: 3px 3px var(--pink-light);
+	background-color: var(--pink-dark);
+	color: var(--pink-light);
+	box-shadow: 3px 3px var(--pink-light);
 }
 
 button:disabled {
-  background-color: var(--disabled-light);
-  color: var(--disabled-dark);
-  border: 1px solid var(--disabled-dark);
-  box-shadow: none;
+	background-color: var(--disabled-light);
+	color: var(--disabled-dark);
+	border: 1px solid var(--disabled-dark);
+	box-shadow: none;
 }
 
 .main {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  text-align: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	text-align: center;
 }
 
 /* 
 Beelscherm
 */
 header {
-  display: flex;
-  justify-content: space-between;
-  height: 3rem;
+	display: flex;
+	justify-content: space-between;
+	height: 3rem;
 }
 
 .container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  background-color: var(--pink-light);
-  width: 40rem;
-  margin: 1rem auto 0;
-  padding: 1rem;
-  border-radius: var(--border-radius);
-  box-shadow: 10px 10px var(--pink-dark);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	background-color: var(--pink-light);
+	width: 40rem;
+	margin: 1rem auto 0;
+	padding: 1rem;
+	border-radius: var(--border-radius);
+	box-shadow: 10px 10px var(--pink-dark);
 }
 
 .container__img {
-  border: 1px solid var(--pink-dark);
-  border-radius: var(--border-radius);
-  margin: 0 auto;
+	border: 1px solid var(--pink-dark);
+	border-radius: var(--border-radius);
+	margin: 0 auto;
 }
 
 .container__img--square {
-  width: 15rem;
-  height: 15rem;
+	width: 15rem;
+	height: 15rem;
 }
 
 #videoElement {
-  width: 100vw;
-  height: 100vh;
-  background-color: #699690;
+	width: 100vw;
+	height: 100vh;
+	background-color: #699690;
 }
 
 /*
 UI
 */
 .UI-page {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  margin: 5rem 1rem 2rem 1rem;
-  text-align: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	margin: 5rem 1rem 2rem 1rem;
+	text-align: center;
 }
 /* Start */
 .welcome {
-  font-size: 2rem;
-  font-weight: 600;
-  margin: 5rem auto;
+	font-size: 2rem;
+	font-weight: 600;
+	margin: 5rem auto;
 }
 .button-picture {
-  margin: 0 5rem;
+	margin: 0 5rem;
 }
 /* Goedkeuring */
 .container__img--rect {
-  width: 20rem;
-  height: 15rem;
+	width: 20rem;
+	height: 15rem;
 }
 
 .question {
-  margin-top: 5rem;
-  font-size: 1.5rem;
-  font-weight: 600;
+	margin-top: 5rem;
+	font-size: 1.5rem;
+	font-weight: 600;
 }
 
 .buttons {
-  margin: 1rem 2rem;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.5rem;
+	margin: 1rem 2rem;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 0.5rem;
 }
 /* Download */
 .download-button {
-  margin: 1rem 5rem;
+	margin: 1rem 5rem;
 }
 
 .heading {
-  text-align: left;
+	text-align: left;
 }
 
 .orderoptions {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: 1rem;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	gap: 1rem;
 }
 
 .order__img {
-  height: 5rem;
-  width: 5rem;
+	height: 5rem;
+	width: 5rem;
 }
 
 /* Projectiescherm */
 .slides__border {
-  margin: -3rem 0 0 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: var(--pink-dark);
+	margin: -3rem 0 0 0;
+	width: 100vw;
+	height: 100vh;
+	background-color: var(--pink-dark);
 }
 
 .slides__img {
-  margin: 2.5rem;
-  width: calc(100vw - 6rem);
-  height: calc(100vh - 6rem);
-  object-fit: contain;
-  border: 1rem var(--pink-light) solid;
-  border-radius: var(--border-radius);
+	margin: 2.5rem;
+	width: calc(100vw - 6rem);
+	height: calc(100vh - 6rem);
+	object-fit: contain;
+	border: 1rem var(--pink-light) solid;
+	border-radius: var(--border-radius);
+}
+
+/* Loading */
+
+.loading,
+.loading div {
+	box-sizing: border-box;
+}
+.loading {
+	display: inline-block;
+	position: relative;
+	width: 80px;
+	height: 250px;
+}
+.loading div {
+	position: absolute;
+	top: 100px;
+	width: 13.33333px;
+	height: 13.33333px;
+	border-radius: 50%;
+	background: currentColor;
+	animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+.loading div:nth-child(1) {
+	left: 8px;
+	animation: loading1 0.6s infinite;
+}
+.loading div:nth-child(2) {
+	left: 8px;
+	animation: loading2 0.6s infinite;
+}
+.loading div:nth-child(3) {
+	left: 32px;
+	animation: loading2 0.6s infinite;
+}
+.loading div:nth-child(4) {
+	left: 56px;
+	animation: loading3 0.6s infinite;
+}
+@keyframes loading1 {
+	0% {
+		transform: scale(0);
+	}
+	100% {
+		transform: scale(1);
+	}
+}
+@keyframes loading3 {
+	0% {
+		transform: scale(1);
+	}
+	100% {
+		transform: scale(0);
+	}
+}
+@keyframes loading2 {
+	0% {
+		transform: translate(0, 0);
+	}
+	100% {
+		transform: translate(24px, 0);
+	}
 }
