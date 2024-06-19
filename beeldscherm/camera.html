@@ -33,10 +33,14 @@
         console.log("message received: ", message.toString());
         // if the message is "flash" then take a picture
         if (message.toString() === "flash") {
+          takepicture();
           console.log("flash");
+          console.log("picture taken");
+
           
         }
       });
+      
     </script>
     <script>
       $(".video-container").customWebCam();
