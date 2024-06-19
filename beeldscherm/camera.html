@@ -82,16 +82,18 @@
       }
 
       function takepicture() {
+        for (let i = 0; i < 5; i++) {
+          setTimeout(() => {
+            document.getElementById("timer").innerText = 5 - i;
+          }, i * 1000);
+        }
+        setTimeout(() => {
+          document.getElementById("timer").innerText = "Smile!";
+        }, 500);
         const context = canvas.getContext("2d");
         if (width && height) {
           canvas.width = width;
           canvas.height = height;
-
-          for (let i = 0; i < 5; i++) {
-            setTimeout(() => {
-              document.getElementById("timer").innerText = 5 - i;
-            }, i * 1000);
-          }
 
           context.drawImage(video, 0, 0, width, height);
           const data = canvas.toDataURL("image/png");
