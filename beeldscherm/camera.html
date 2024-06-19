@@ -9,6 +9,7 @@
   </head>
   <body>
     <div class="video-container">
+      <div id="timer"></div>
       <video autoplay="true" id="videoElement"></video>
       <canvas id="canvas" style="display: none"></canvas>
       <img id="photo" alt="Captured Image" />
@@ -85,8 +86,14 @@
         if (width && height) {
           canvas.width = width;
           canvas.height = height;
-          context.drawImage(video, 0, 0, width, height);
 
+          for (let i = 0; i < 5; i++) {
+            setTimeout(() => {
+              document.getElementById("timer").innerText = 5 - i;
+            }, i * 1000);
+          }
+
+          context.drawImage(video, 0, 0, width, height);
           const data = canvas.toDataURL("image/png");
           photo.setAttribute("src", data);
         } else {
