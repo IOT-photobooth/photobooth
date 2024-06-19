@@ -13,6 +13,8 @@ const video = document.querySelector("#videoElement");
 const canvas = document.getElementById("canvas");
 const photo = document.getElementById("photo");
 
+let data = "";
+
 if (navigator.mediaDevices.getUserMedia) {
 	navigator.mediaDevices
 		.getUserMedia({ video: true })
@@ -55,7 +57,7 @@ function clearphoto() {
 	context.fillStyle = "#AAA";
 	context.fillRect(0, 0, canvas.width, canvas.height);
 
-	const data = canvas.toDataURL("");
+	data = canvas.toDataURL("");
 	photo.setAttribute("src", data);
 	console.log("test clear");
 }
@@ -72,9 +74,9 @@ function takepicture() {
 		context.drawImage(video, -width, 0, width, height);
 		context.restore();
 
-		const data = canvas.toDataURL("image/png");
+		data = canvas.toDataURL("image/png");
+		client.publish("photobooth/AHS", data);
 		photo.setAttribute("src", data);
-		console.log(data);
 
 		// Send the image to broker
 	} else {
@@ -96,7 +98,10 @@ client.on("message", (topic, message) => {
 		}, 5500);
 		console.log("flash");
 		console.log("picture taken");
+	} else if (message.toString() === data) {
+		console.log(data);
+		window.location.href = "../beeldscherm/loading.html";
 	}
 });
 
-$(".video-container").customWebCam();
+// $(".video-container").customWebCam();
