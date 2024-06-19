@@ -12,9 +12,9 @@
       <video autoplay="true" id="videoElement"></video>
     </div>
 
-    <script src="../js/camera.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="../js/webCamLib.min.js"></script>
+    <script src="../js/camera.js"></script>
     <script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
     <script>
       const client = mqtt.connect(`wss://mqtt.eclipseprojects.io/mqtt`);
@@ -41,7 +41,7 @@
 
       function startup() {
         //video = document.getElementById("video");
-        canvas = document.getElementById("canvas");
+        canvas = document.getElementById("video-container");
         photo = document.getElementById("photo");
         startbutton = document.getElementById("startbutton");
 
