@@ -75,10 +75,10 @@ function takepicture() {
     context.restore();
 
     data = canvas.toDataURL("image/png");
-    client.publish("photobooth/AHS", data);
+    //client.publish("photobooth/AHS", data);
 
-    //let blob = dataURItoBlob(data);
-    //client.publish("photobooth/AHS", blob);
+    let blob = dataURItoBlob(data);
+    client.publish("photobooth/AHS", blob);
     photo.setAttribute("src", data);
 
     // Send the image to broker
