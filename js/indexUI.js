@@ -5,5 +5,6 @@ client.on("message", (topic, message) => {
   // if message is base64 encoded image, redirect to goedkeuring.html and pass the image as a query parameter
   if (message.toString().startsWith("data:image/png;base64")) {
     window.location.href = `goedkeuring.html?image=${message.toString()}`;
+    photo.setAttribute("src", message.toString());
   }
 });
