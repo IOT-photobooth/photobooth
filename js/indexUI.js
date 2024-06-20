@@ -45,13 +45,13 @@ client.on("message", (topic, message) => {
         console.log("deze foto is public");
         saveImage();
         showDownloadButton();
-        client.publish("photobooth/AHS", "pi");
+        client.publish("photobooth/AHS", "qr");
       });
 
       photoPrivate.addEventListener("click", () => {
         console.log("deze foto is private");
         showDownloadButton();
-        client.publish("photobooth/AHS", "pi");
+        client.publish("photobooth/AHS", "qr");
       });
 
       function showDownloadButton() {
