@@ -1,50 +1,58 @@
 <!DOCTYPE html>
 <html lang="nl">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="icon" href="./images/faviconV2.png" />
-		<link rel="stylesheet" href="../css/main.css" />
-		<title>Loading</title>
-	</head>
-	<body>
-		<header>
-			<img src="../images/ARTEVELDE_hs_logo RGB.png" alt="logo artevelde" />
-			<a href=""><img src="../images/settings_icon.svg" alt="settings" /></a>
-		</header>
-		<div class="container">
-			<h1 class="container__text">Geef toestemmingen via je telefoon</h1>
-			<div class="loading">
-				<div></div>
-				<div></div>
-				<div></div>
-				<div></div>
-			</div>
-			<a href="camera.html">
-				<button>BACK</button>
-			</a>
-		</div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="./images/faviconV2.png" />
+    <link rel="stylesheet" href="../css/main.css" />
+    <title>Loading</title>
+  </head>
+  <body>
+    <header>
+      <img src="../images/ARTEVELDE_hs_logo RGB.png" alt="logo artevelde" />
+      <a href=""><img src="../images/settings_icon.svg" alt="settings" /></a>
+    </header>
+    <div class="container">
+      <h1 class="container__text">Geef toestemmingen via je telefoon</h1>
+      <div class="loading">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <a href="camera.html">
+        <button>BACK</button>
+      </a>
+    </div>
 
-		<script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
-		<script>
-			const client = mqtt.connect(`wss://mqtt.eclipseprojects.io/mqtt`);
+    <script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
+    <script>
+      const client = mqtt.connect(`wss://mqtt.eclipseprojects.io/mqtt`);
 
-			client.on("connect", () => {
-				client.subscribe("photobooth/AHS", (err) => {
-					if (!err) {
-						client.publish("presence", "Hello from photobooth");
-						console.log("we have connected");
-					}
-				});
-			});
+      client.on("connect", () => {
+        client.subscribe("photobooth/AHS", (err) => {
+          if (!err) {
+            client.publish("presence", "Hello from photobooth");
+            console.log("we have connected");
+          }
+        });
+      });
 
-			client.on("message", (topic, message) => {
-				console.log("message received: ", message.toString());
-				// if the message is "start" then redirect to camera page
-				if (message.toString() === "start") {
-					window.location.href = "../beeldscherm/camera.html";
-				}
-			});
-		</script>
-	</body>
+      client.on("message", (topic, message) => {
+        console.log("message received: ", message.toString());
+        // if the message is "start" then redirect to camera page
+        if (message.toString() === "start") {
+          window.location.href = "../beeldscherm/camera.html";
+        }
+      });
+
+      client.on("message", (topic, message) => {
+        console.log("message received: ", message.toString());
+        // if the message is "qr" then redirect to index
+        if (message.toString() === "qr") {
+          window.location.href = "../beeldscherm/index.html";
+        }
+      });
+    </script>
+  </body>
 </html>

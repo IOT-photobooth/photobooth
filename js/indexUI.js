@@ -44,21 +44,24 @@ client.on("message", (topic, message) => {
       photoPublic.addEventListener("click", () => {
         console.log("deze foto is public");
         saveImage();
-        downloadDiv.innerHTML = `<button class="download-button" id="download-button">Download</button>`;
-        const downloadButton = document.getElementById("download-button");
-        downloadButton.addEventListener("click", () => {
-          downloadImage(message.toString());
-        });
+        showDownloadButton();
+        client.publish("photobooth/AHS", "pi");
       });
 
       photoPrivate.addEventListener("click", () => {
         console.log("deze foto is private");
+        showDownloadButton();
+        client.publish("photobooth/AHS", "pi");
+      });
+
+      function showDownloadButton() {
+        const downloadDiv = document.getElementById("download");
         downloadDiv.innerHTML = `<button class="download-button" id="download-button">Download</button>`;
         const downloadButton = document.getElementById("download-button");
         downloadButton.addEventListener("click", () => {
           downloadImage(message.toString());
         });
-      });
+      }
 
       function downloadImage(dataUrl) {
         // Create a temporary link element
