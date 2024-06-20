@@ -23,18 +23,40 @@ client.on("message", (topic, message) => {
 
 		photoBad.addEventListener("click", () => {
 			UIpage.innerHTML = `
-    <div class="UI-page" id="UIpage">
-			<img
-				class="logo"
-				src="../images/ARTEVELDE_hs_logo RGB.png"
-				alt="logo artevelde"
-			/>
-			<p class="welcome">Druk op de knop voor een nieuwe foto!</p>
-			<button class="button-picture" id="take-picture">Neem foto</button>
-		</div>
-  `;
+        <div class="UI-page" id="UIpage">
+          <img
+            class="logo"
+            src="../images/ARTEVELDE_hs_logo RGB.png"
+            alt="logo artevelde"
+          />
+          <p class="welcome">Druk op de knop voor een nieuwe foto!</p>
+          <button class="button-picture" id="take-picture">Neem foto</button>
+        </div>
+      `;
 
 			client.publish("photobooth/AHS", "start");
+		});
+
+		photoGood.addEventListener("click", () => {
+			const question = document.getElementById("question");
+			const buttons = document.getElementById("approval-buttons");
+
+			question.innerText = "Mogen we deze tonen op de projectie?";
+			buttons.innerHTML = `
+        <button class="answer-button" id="photo-public">Ja</button>
+        <button class="answer-button" id="photo-private">Nee</button>
+      `;
+
+			const photoPublic = document.getElementById("photo-public");
+			const photoPrivate = document.getElementById("photo-private");
+
+			photoPublic.addEventListener("click", () => {
+				console.log("deze foto is public");
+			});
+
+			photoPrivate.addEventListener("click", () => {
+				console.log("deze foto is private");
+			});
 		});
 	}
 });
