@@ -1,22 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="./images/faviconV2.png" />
-    <link rel="stylesheet" href="../css/main.css" />
-    <title>Camera</title>
-  </head>
-  <body>
-    <div class="video-container">
-      <!-- <div id="timer"></div> -->
-      <video autoplay="true" id="videoElement"></video>
-      <canvas id="canvas" style="display: none"></canvas>
-      <img id="photo" alt="Captured Image" />
-    </div>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="icon" href="./images/faviconV2.png" />
+		<link rel="stylesheet" href="../css/main.css" />
+		<title>Camera</title>
+	</head>
+	<body>
+		<div class="video-container">
+			<video autoplay="true" id="videoElement"></video>
+			<canvas id="canvas" style="display: none"></canvas>
+			<button id="back">Terug naar start</button>
+		</div>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
-    <script src="../js/camera.js"></script>
-  </body>
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+		<script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
+		<script src="../js/camera.js"></script>
+		<script>
+			const goBack = document.getElementById("back");
+
+			goBack.addEventListener("click", () => {
+				window.location.href = "../beeldscherm/index.html";
+			});
+		</script>
+	</body>
 </html>

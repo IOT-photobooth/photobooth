@@ -76,12 +76,6 @@ function takepicture() {
 
 		data = canvas.toDataURL("image/png");
 		client.publish("photobooth/AHS", data);
-
-		/*let blob = dataURItoBlob(data);
-    client.publish("photobooth/AHS", blob);
-    photo.setAttribute("src", data);*/
-
-		// Send the image to broker
 	} else {
 		clearphoto();
 	}
@@ -101,13 +95,7 @@ function dataURItoBlob(dataURI) {
 client.on("message", (topic, message) => {
 	console.log("message received: ", message.toString());
 	if (message.toString() === "flash") {
-		/* for (let i = 0; i < 5; i++) {
-      setTimeout(() => {
-        document.getElementById("timer").innerText = 5 - i;
-      }, i * 1000);
-    } */
 		setTimeout(() => {
-			//document.getElementById("timer").innerText = "Smile!";
 			takepicture();
 		}, 5500);
 		console.log("flash");
@@ -116,5 +104,3 @@ client.on("message", (topic, message) => {
 		window.location.href = "../beeldscherm/loading.html";
 	}
 });
-
-// $(".video-container").customWebCam();
