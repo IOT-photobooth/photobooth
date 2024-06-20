@@ -39,7 +39,6 @@ client.on("message", (topic, message) => {
 
       const photoPublic = document.getElementById("photo-public");
       const photoPrivate = document.getElementById("photo-private");
-      const downloadDiv = document.getElementById("download");
 
       photoPublic.addEventListener("click", () => {
         console.log("deze foto is public");
@@ -59,17 +58,17 @@ client.on("message", (topic, message) => {
       function showDownloadButton() {
         buttons.innerHTML = `
 		<button class="download-button" id="download-button">Download</button>
-		<button class="again-button" id="again-button">Opnieuw</button>
+		<button class="download-button" id="again-button">Opnieuw</button>
 		`;
-
-        const againButton = document.getElementById("return-button");
-        returnButton.addEventListener("click", () => {
-          client.publish("photobooth/AHS", "start");
-        });
 
         const downloadButton = document.getElementById("download-button");
         downloadButton.addEventListener("click", () => {
           downloadImage(message.toString());
+        });
+
+        const againButton = document.getElementById("again-button");
+        againButton.addEventListener("click", () => {
+          client.publish("photobooth/AHS", "start");
         });
       }
 

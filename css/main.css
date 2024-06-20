@@ -151,7 +151,7 @@ UI
 }
 
 /* Download */
-#download-button {
+.download-button {
   margin: 2rem 0;
 }
 
