@@ -22,17 +22,7 @@ client.on("message", (topic, message) => {
 		const photoBad = document.getElementById("photo-no");
 
 		photoBad.addEventListener("click", () => {
-			UIpage.innerHTML = `
-        <div class="UI-page" id="UIpage">
-          <img
-            class="logo"
-            src="../images/ARTEVELDE_hs_logo RGB.png"
-            alt="logo artevelde"
-          />
-          <p class="welcome">Druk op de knop voor een nieuwe foto!</p>
-          <button class="button-picture" id="take-picture">Neem foto</button>
-        </div>
-      `;
+			window.location.href = "../UI/index.html";
 
 			client.publish("photobooth/AHS", "start");
 		});
