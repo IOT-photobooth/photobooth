@@ -43,12 +43,12 @@ client.on("message", (topic, message) => {
 
       photoPublic.addEventListener("click", () => {
         console.log("deze foto is public");
+        saveImage();
         downloadDiv.innerHTML = `<button class="download-button" id="download-button">Download</button>`;
         const downloadButton = document.getElementById("download-button");
         downloadButton.addEventListener("click", () => {
           downloadImage(message.toString());
-		});
-		saveImage();
+        });
       });
 
       photoPrivate.addEventListener("click", () => {
@@ -76,8 +76,8 @@ client.on("message", (topic, message) => {
         document.body.removeChild(link);
       }
     });
-	}
-	async function saveImage() {
+  }
+  async function saveImage() {
     const myHeaders = new Headers();
     myHeaders.append("Authorization", "Client-ID 38805418d6bc3a6953d40fe167384128635e424a");
 
@@ -95,9 +95,8 @@ client.on("message", (topic, message) => {
     };
 
     fetch("https://api.imgur.com/3/image", requestOptions)
-      .then(response => response.text())
-      .then(result => console.log(result))
-      .catch(error => console.error(error));
+      .then((response) => response.text())
+      .then((result) => console.log(result))
+      .catch((error) => console.error(error));
   }
-
 });

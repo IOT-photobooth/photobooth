@@ -15,19 +15,6 @@ const apiUrl = `https://storage.googleapis.com/storage/v1/b/${bucketName}/o?alt=
 
 /* async function fetchImages() {
   try {
-    // Fetching placeholder images from JSONPlaceholder
-    const response = await fetch("https://jsonplaceholder.typicode.com/photos?_limit=10");
-    const data = await response.json();
-    const images = data.map((item) => item.url);
-    return images;
-  } catch (error) {
-    console.error("Error fetching images:", error);
-    return [];
-  }
-} */
-
-async function fetchImages() {
-  try {
     // Generating a list of placeholder images from Picsum
     const images = Array.from({ length: 10 }, (_, index) => `https://picsum.photos/seed/${index}/800/600`);
     return images;
@@ -35,6 +22,13 @@ async function fetchImages() {
     console.error("Error fetching images:", error);
     return [];
   }
+} */
+
+// get png's from images/examples folder, it's not json but actual images
+
+function fetchImages() {
+  const images = Array.from({ length: 3 }, (_, index) => `../images/examples/${index}.png`);
+  return images;
 }
 
 function createSlideshow(images) {
