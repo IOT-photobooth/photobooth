@@ -83,15 +83,39 @@ client.on("message", (topic, message) => {
       }
     });
   }
-  async function saveImage() {
+ 	const image = new Image();
+  image.src = message.toString();
+
+  function base64ToBlob(base64) {
+    console.log("test start deze log");
+    const base64Data = base64.split(",")[1];
+    const contentType = base64.split(",")[0].split(":")[1].split(";")[0];
+    const byteCharacters = atob(base64Data);
+    const byteArrays = [];
+    for (let offset = 0; offset < byteCharacters.length; offset += 512) {
+      const slice = byteCharacters.slice(offset, offset + 512);
+      const byteNumbers = new Array(slice.length);
+      for (let i = 0; i < slice.length; i++) {
+        byteNumbers[i] = slice.charCodeAt(i);
+      }
+      const byteArray = new Uint8Array(byteNumbers);
+      byteArrays.push(byteArray);
+    }
+    return new Blob(byteArrays, { type: contentType });
+  }
+
+  async function saveImage(image) {
+    const blob = base64ToBlob(image);
+    console.log("Saving image as blob:", blob);
+
     const myHeaders = new Headers();
     myHeaders.append("Authorization", "Client-ID 38805418d6bc3a6953d40fe167384128635e424a");
 
     const formdata = new FormData();
-    formdata.append("image", fileInput.files[0], "[PROXY]");
+    formdata.append("image", blob, "image.png");
     formdata.append("type", "file");
     formdata.append("title", "Simple upload");
-    formdata.append("description", "This is a simple image upload in Imgur");
+    formdata.append("description", "This is a simple image upload to Imgur");
 
     const requestOptions = {
       method: "POST",
@@ -100,9 +124,12 @@ client.on("message", (topic, message) => {
       redirect: "follow",
     };
 
-    fetch("https://api.imgur.com/3/image", requestOptions)
-      .then((response) => response.text())
-      .then((result) => console.log(result))
-      .catch((error) => console.error(error));
+    try {
+      const response = await fetch("https://api.imgur.com/3/image", requestOptions);
+      const result = await response.json();
+      console.log(result);
+    } catch (error) {
+      console.error(error);
+    }
   }
 });
