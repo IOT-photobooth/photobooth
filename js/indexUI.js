@@ -43,8 +43,7 @@ client.on("message", (topic, message) => {
 
       photoPublic.addEventListener("click", () => {
         console.log("deze foto is public");
-        photoPublic.style.display = "none";
-        photoPrivate.style.display = "none";
+        question.style.display = "none";
         saveImage();
         showDownloadButton();
         client.publish("photobooth/AHS", "qr");
@@ -52,15 +51,13 @@ client.on("message", (topic, message) => {
 
       photoPrivate.addEventListener("click", () => {
         console.log("deze foto is private");
-        photoPublic.style.display = "none";
-        photoPrivate.style.display = "none";
+        question.style.display = "none";
         showDownloadButton();
         client.publish("photobooth/AHS", "qr");
       });
 
       function showDownloadButton() {
-        const downloadDiv = document.getElementById("download");
-        downloadDiv.innerHTML = `<button class="download-button" id="download-button">Download</button>`;
+        buttons.innerHTML = `<button class="download-button" id="download-button">Download</button>`;
         const downloadButton = document.getElementById("download-button");
         downloadButton.addEventListener("click", () => {
           downloadImage(message.toString());
