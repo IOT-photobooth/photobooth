@@ -43,7 +43,7 @@ client.on("message", (topic, message) => {
       photoPublic.addEventListener("click", () => {
         console.log("deze foto is public");
         question.style.display = "none";
-        saveImage();
+        saveImage(image.src);
         showDownloadButton();
         client.publish("photobooth/AHS", "qr");
       });
