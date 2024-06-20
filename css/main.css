@@ -151,11 +151,8 @@ UI
 }
 
 /* Download */
-#download {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
+#download-button {
+  margin: 2rem 0;
 }
 
 .heading {

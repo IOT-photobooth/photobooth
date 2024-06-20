@@ -57,7 +57,16 @@ client.on("message", (topic, message) => {
       });
 
       function showDownloadButton() {
-        buttons.innerHTML = `<button class="download-button" id="download-button">Download</button>`;
+        buttons.innerHTML = `
+		<button class="download-button" id="download-button">Download</button>
+		<button class="again-button" id="again-button">Opnieuw</button>
+		`;
+
+        const againButton = document.getElementById("return-button");
+        returnButton.addEventListener("click", () => {
+          client.publish("photobooth/AHS", "start");
+        });
+
         const downloadButton = document.getElementById("download-button");
         downloadButton.addEventListener("click", () => {
           downloadImage(message.toString());
