@@ -115,7 +115,8 @@ client.on("message", (topic, message) => {
     formdata.append("image", blob, "image.png");
     formdata.append("type", "file");
     formdata.append("title", "Simple upload");
-    formdata.append("description", "This is a simple image upload to Imgur");
+	  formdata.append("description", "This is a simple image upload to Imgur");
+	  formdata.append("account_id", "38805418d6bc3a6953d40fe167384128635e424a");
 
     const requestOptions = {
       method: "POST",
