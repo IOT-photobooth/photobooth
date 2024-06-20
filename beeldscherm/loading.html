@@ -37,6 +37,14 @@
 					}
 				});
 			});
+
+			client.on("message", (topic, message) => {
+				console.log("message received: ", message.toString());
+				// if the message is "start" then redirect to camera page
+				if (message.toString() === "start") {
+					window.location.href = "../beeldscherm/camera.html";
+				}
+			});
 		</script>
 	</body>
 </html>
