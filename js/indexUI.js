@@ -43,6 +43,8 @@ client.on("message", (topic, message) => {
 
       photoPublic.addEventListener("click", () => {
         console.log("deze foto is public");
+        photoPublic.style.display = "none";
+        photoPrivate.style.display = "none";
         saveImage();
         showDownloadButton();
         client.publish("photobooth/AHS", "qr");
@@ -50,6 +52,8 @@ client.on("message", (topic, message) => {
 
       photoPrivate.addEventListener("click", () => {
         console.log("deze foto is private");
+        photoPublic.style.display = "none";
+        photoPrivate.style.display = "none";
         showDownloadButton();
         client.publish("photobooth/AHS", "qr");
       });
