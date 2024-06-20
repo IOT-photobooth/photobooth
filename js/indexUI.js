@@ -58,7 +58,7 @@ client.on("message", (topic, message) => {
       function showDownloadButton() {
         buttons.innerHTML = `
 		<button class="download-button" id="download-button">Download</button>
-		<button class="download-button" id="again-button">Opnieuw</button>
+		<-- <button class="download-button" id="again-button">Opnieuw</button> -->
 		`;
 
         const downloadButton = document.getElementById("download-button");
@@ -66,11 +66,11 @@ client.on("message", (topic, message) => {
           downloadImage(message.toString());
         });
 
-        const againButton = document.getElementById("again-button");
+        /* const againButton = document.getElementById("again-button");
         againButton.addEventListener("click", () => {
           client.publish("photobooth/AHS", "start");
           window.location.href = "../UI/index.html";
-        });
+        }); */
       }
 
       function downloadImage(dataUrl) {
