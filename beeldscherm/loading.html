@@ -1,42 +1,42 @@
 <!DOCTYPE html>
 <html lang="nl">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="./images/faviconV2.png" />
-    <link rel="stylesheet" href="../css/main.css" />
-    <title>Download</title>
-  </head>
-  <body>
-    <header>
-      <img src="../images/ARTEVELDE_hs_logo RGB.png" alt="logo artevelde" />
-      <a href=""><img src="../images/settings_icon.svg" alt="settings" /></a>
-    </header>
-    <div class="container">
-      <h1 class="container__text">Geef toestemmingen via je telefoon</h1>
-      <div class="loading">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
-      <button>
-        <a href="camera.html">BACK</a>
-      </button>
-    </div>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="icon" href="./images/faviconV2.png" />
+		<link rel="stylesheet" href="../css/main.css" />
+		<title>Loading</title>
+	</head>
+	<body>
+		<header>
+			<img src="../images/ARTEVELDE_hs_logo RGB.png" alt="logo artevelde" />
+			<a href=""><img src="../images/settings_icon.svg" alt="settings" /></a>
+		</header>
+		<div class="container">
+			<h1 class="container__text">Geef toestemmingen via je telefoon</h1>
+			<div class="loading">
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
+			<button>
+				<a href="camera.html">BACK</a>
+			</button>
+		</div>
 
-    <script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
-    <script>
-      const client = mqtt.connect(`wss://mqtt.eclipseprojects.io/mqtt`);
+		<script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
+		<script>
+			const client = mqtt.connect(`wss://mqtt.eclipseprojects.io/mqtt`);
 
-      client.on("connect", () => {
-        client.subscribe("photobooth/AHS", (err) => {
-          if (!err) {
-            client.publish("presence", "Hello from photobooth");
-            console.log("we have connected");
-          }
-        });
-      });
-    </script>
-  </body>
+			client.on("connect", () => {
+				client.subscribe("photobooth/AHS", (err) => {
+					if (!err) {
+						client.publish("presence", "Hello from photobooth");
+						console.log("we have connected");
+					}
+				});
+			});
+		</script>
+	</body>
 </html>
