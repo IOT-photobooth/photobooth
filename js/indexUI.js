@@ -69,6 +69,7 @@ client.on("message", (topic, message) => {
         const againButton = document.getElementById("again-button");
         againButton.addEventListener("click", () => {
           client.publish("photobooth/AHS", "start");
+          window.location.href = "../UI/index.html";
         });
       }
 
